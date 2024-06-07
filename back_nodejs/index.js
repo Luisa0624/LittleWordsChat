@@ -6,10 +6,13 @@ const router = require('./routes/index')
 const cookiesParser = require('cookie-parser')
 
 const app = express()
-app.use(cors({
+
+const corsOptions ={
     origin: process.env.FRONTEND_URL,
-    credential : true
-}))
+    credentials : true,
+}
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 app.use(cookiesParser())
